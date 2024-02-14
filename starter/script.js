@@ -90,7 +90,22 @@ var upperCasedCharacters = [
 
 // Function to prompt user for password options
 function getPasswordOptions() {
+  var pwdLengthElement = document.getElementById('password-length');
+  var pwdLength = pwdLengthElement.value;
 
+  var preferenceElement1 = document.getElementById('preference1');
+  var uppercase = preferenceElement1.value;
+  
+  var preferenceElement2 = document.getElementById('preference2');
+  var lowercase = preferenceElement2.value;
+  
+  var preferenceElement3 = document.getElementById('preference3');
+  var numbers = preferenceElement3.value;
+  
+  var preferenceElement4 = document.getElementById('preference4');
+  var punctuation = preferenceElement4.value;
+
+  console.log(pwdLength + uppercase + lowercase + numbers + punctuation)
 }
 
 // Function for getting a random element from an array
@@ -115,4 +130,5 @@ function writePassword() {
 }
 
 // Add event listener to generate button
+getPasswordOptions();
 generateBtn.addEventListener('click', writePassword);
