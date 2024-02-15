@@ -203,10 +203,23 @@ function generatePassword() {
     draftPassword.push(getRandom(specialCharacters));
   }
 
+  // scramble the password order
+  for (var i = 0; i < draftPassword.length; i++) {
+    var character = getRandom(draftPassword);
+    while (character == "null") {
+      character = getRandom(draftPassword);
+      if (character != "null") {
+        break;
+      }
+    }
+    actualPassword.push(character);
+    draftPassword[draftPassword.indexOf(character)] = "null";
+  }
+
   //create string to hold password
   let password = "";
   for (var i = 0; i < pwdLength; i++) {
-    password += draftPassword[i];
+    password += actualPassword[i];
   }
   return password;
 }
