@@ -182,7 +182,36 @@ function generatePassword() {
       numExtra -= 1; //decrease the number of remaining extra characters
     }
   }
-  
+
+  //generate the password
+  //retrieving password characters according to the selected preferences
+  for (var i = 0; i < numUppercase; i++) {
+    draftPassword.push(getRandom(upperCasedCharacters));
+  }
+  for (var i = 0; i < numLowercase; i++) {
+    draftPassword.push(getRandom(lowerCasedCharacters));
+  }
+  for (var i = 0; i < numNumbers; i++) {
+    draftPassword.push(getRandom(numericCharacters));
+  }
+  for (var i = 0; i < numPunctuation; i++) {
+    draftPassword.push(getRandom(specialCharacters));
+  }
+  //scramble password order
+  var arrayCopy = draftPassword.slice(); // Make a copy of the original array
+
+    for (var i = 0; i < pwdLength; i++) {
+        // Generate a random index between 0 and the length of the array
+        var randomIndex = getRandom(arrayCopy);
+
+        // Add the element at the random index to the result array
+        actualPassword.push(arrayCopy[randomIndex]);
+
+        // Remove the selected element from the array copy to avoid duplicates
+        arrayCopy.splice(randomIndex, 1);
+    }
+
+    return actualPassword;
 }
 
 // Get references to the #generate element
