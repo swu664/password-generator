@@ -94,16 +94,16 @@ function getPasswordOptions() {
   var pwdLength = pwdLengthElement.value;
 
   var preferenceElement1 = document.getElementById('preference1');
-  var uppercase = preferenceElement1.value;
+  var uppercase = preferenceElement1.checked;
   
   var preferenceElement2 = document.getElementById('preference2');
-  var lowercase = preferenceElement2.value;
+  var lowercase = preferenceElement2.checked;
   
   var preferenceElement3 = document.getElementById('preference3');
-  var numbers = preferenceElement3.value;
+  var numbers = preferenceElement3.checked;
   
   var preferenceElement4 = document.getElementById('preference4');
-  var punctuation = preferenceElement4.value;
+  var punctuation = preferenceElement4.checked;
 
   console.log(pwdLength + uppercase + lowercase + numbers + punctuation)
 }
@@ -125,7 +125,7 @@ var generateBtn = document.querySelector('#generate');
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector('#password');
-
+//if password is empty and no preference is selected ...
   passwordText.value = password;
 }
 
