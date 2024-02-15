@@ -221,6 +221,8 @@ function writePassword() {
   //if password is empty and no preference is selected
   if (pwdLength == 0) {
     passwordText.value = "Please makes sure that you have entered your desired password length and selected your password preferences.";
+  } else if (pwdLength < 8 || pwdLength > 128) {
+    passwordText.value = "Please ensure that the desired password legnth is at least 8 characters and no more than 128."
   } else if (uppercase===false && lowercase===false && numbers===false && punctuation===false) {
     passwordText.value = "Please makes sure that you have selected your password preferences.";
   } else {
