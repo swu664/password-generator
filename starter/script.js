@@ -227,8 +227,12 @@ var generateBtn = document.querySelector('#generate');
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector('#password');
-//if password is empty and no preference is selected ...
-  passwordText.value = password;
+  //if password is empty and no preference is selected
+  if (pwdLength == 0 || (uppercase==false && lowercase==false && numbers == false && punctuation==false)) {
+    passwordText.value = "Please makes sure that you have entered your desired password length and selected your password preferences."
+  } else {
+    passwordText.value = password;
+  }
 }
 
 // Add event listener to generate button
