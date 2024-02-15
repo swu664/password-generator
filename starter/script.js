@@ -202,19 +202,6 @@ function generatePassword() {
   for (var i = 0; i < numPunctuation; i++) {
     draftPassword.push(getRandom(specialCharacters));
   }
-  //scramble password order
-  var arrayCopy = draftPassword.slice(); // Make a copy of the original array
-
-    for (var i = 0; i < arrayCopy; i++) {
-        // Generate a random index between 0 and the length of the array
-        var randomIndex = getRandom(arrayCopy);
-
-        // Add the element at the random index to the result array
-        actualPassword.push(arrayCopy[randomIndex]);
-
-        // Remove the selected element from the array copy to avoid duplicates
-        arrayCopy.splice(randomIndex, 1);
-    }
 
   //create string to hold password
   let password = "";
