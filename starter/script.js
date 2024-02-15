@@ -205,7 +205,7 @@ function generatePassword() {
   //scramble password order
   var arrayCopy = draftPassword.slice(); // Make a copy of the original array
 
-    for (var i = 0; i < pwdLength; i++) {
+    for (var i = 0; i < arrayCopy; i++) {
         // Generate a random index between 0 and the length of the array
         var randomIndex = getRandom(arrayCopy);
 
