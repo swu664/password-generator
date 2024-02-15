@@ -88,22 +88,28 @@ var upperCasedCharacters = [
   'Z'
 ];
 
+let pwdLength;
+let uppercase;
+let lowercase;
+let numbers;
+let punctuation;
+
 // Function to prompt user for password options
 function getPasswordOptions() {
   let pwdLengthElement = document.getElementById('password-length');
-  let pwdLength = pwdLengthElement.value;
+  pwdLength = pwdLengthElement.value;
 
   let preferenceElement1 = document.getElementById('preference1');
-  let uppercase = preferenceElement1.checked;
+  uppercase = preferenceElement1.checked;
   
   let preferenceElement2 = document.getElementById('preference2');
-  let lowercase = preferenceElement2.checked;
+  lowercase = preferenceElement2.checked;
   
   let preferenceElement3 = document.getElementById('preference3');
-  let numbers = preferenceElement3.checked;
+  numbers = preferenceElement3.checked;
   
   let preferenceElement4 = document.getElementById('preference4');
-  let punctuation = preferenceElement4.checked;
+  punctuation = preferenceElement4.checked;
 
   console.log(pwdLength + uppercase + lowercase + numbers + punctuation)
 }
