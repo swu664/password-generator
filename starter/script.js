@@ -227,12 +227,14 @@ var generateBtn = document.querySelector('#generate');
 // Write password to the #password input
 function writePassword() {
   var passwordText = document.querySelector('#password');
+  getPasswordOptions();
   //if password is empty and no preference is selected
   if (pwdLength == 0) {
-    passwordText.value = "Please makes sure that you have entered your desired password length and selected your password preferences."
-  } else if ((uppercase==false && lowercase==false && numbers == false && punctuation==false)) {
-    passwordText.value = "Please makes sure that you have entered your desired password length and selected your password preferences."
+    passwordText.value = "Please makes sure that you have entered your desired password length and selected your password preferences.";
+  } else if (uppercase===false && lowercase===false && numbers===false && punctuation===false) {
+    passwordText.value = "Please makes sure that you have selected your password preferences.";
   } else {
+    console.log("passed")
     passwordText.value = generatePassword();
   }
 }
