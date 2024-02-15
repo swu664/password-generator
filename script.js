@@ -88,27 +88,27 @@ var upperCasedCharacters = [
   'Z'
 ];
 
-let pwdLength;
-let uppercase;
-let lowercase;
-let numbers;
-let punctuation;
+var pwdLength;
+var uppercase;
+var lowercase;
+var numbers;
+var punctuation;
 
 // Function to prompt user for password options
 function getPasswordOptions() {
-  let pwdLengthElement = document.getElementById('password-length');
+  var pwdLengthElement = document.getElementById('password-length');
   pwdLength = pwdLengthElement.value;
 
-  let preferenceElement1 = document.getElementById('preference1');
+  var preferenceElement1 = document.getElementById('preference1');
   uppercase = preferenceElement1.checked;
   
-  let preferenceElement2 = document.getElementById('preference2');
+  var preferenceElement2 = document.getElementById('preference2');
   lowercase = preferenceElement2.checked;
   
-  let preferenceElement3 = document.getElementById('preference3');
+  var preferenceElement3 = document.getElementById('preference3');
   numbers = preferenceElement3.checked;
   
-  let preferenceElement4 = document.getElementById('preference4');
+  var preferenceElement4 = document.getElementById('preference4');
   punctuation = preferenceElement4.checked;
 
   console.log(pwdLength + uppercase + lowercase + numbers + punctuation)
@@ -116,7 +116,7 @@ function getPasswordOptions() {
 
 // Function for getting a random element from an array
 function getRandom(arr) {
-  let randomIndex = Math.floor(Math.random() * arr.length)
+  var randomIndex = Math.floor(Math.random() * arr.length)
   return arr[randomIndex];
 }
 
@@ -124,26 +124,26 @@ function getRandom(arr) {
 function generatePassword() {
   getPasswordOptions();
 
-  let pwdPreferenceBoolean = [uppercase, lowercase, numbers, punctuation];
-  let pwdPreferenceArray = [];
-  let numPreferences = 0;
-  let draftPassword = [];
-  let actualPassword = [];
+  var pwdPreferenceBoolean = [uppercase, lowercase, numbers, punctuation];
+  var pwdPreferenceArray = [];
+  var numPreferences = 0;
+  var draftPassword = [];
+  var actualPassword = [];
 
   //calculate a balanced number of characters for each preference
   //check the number of preferences
-  for (let i = 0; i < pwdPreferenceBoolean.length; i++) {
+  for (var i = 0; i < pwdPreferenceBoolean.length; i++) {
     if (pwdPreferenceBoolean[i] != false) {
       numPreferences+= 1;
     }
   }
-  let baseNumber = parseInt(pwdLength / numPreferences); //minimum number of characters for the selected preferences
-  let numExtra = pwdLength - (baseNumber * numPreferences); //the remainder
+  var baseNumber = parseInt(pwdLength / numPreferences); //minimum number of characters for the selected preferences
+  var numExtra = pwdLength - (baseNumber * numPreferences); //the remainder
   //declare variables
-  let numUppercase = 0;
-  let numLowercase = 0;
-  let numNumbers = 0;
-  let numPunctuation = 0;
+  var numUppercase = 0;
+  var numLowercase = 0;
+  var numNumbers = 0;
+  var numPunctuation = 0;
   //iterate through "pwd preference array" to assign the base number of characters
   for (var i = 0; i < pwdPreferenceBoolean.length; i++) {
     if (pwdPreferenceBoolean[i] == true) {
@@ -217,7 +217,7 @@ function generatePassword() {
   }
 
   //create string to hold password
-  let password = "";
+  var password = "";
   for (var i = 0; i < pwdLength; i++) {
     password += actualPassword[i];
   }
