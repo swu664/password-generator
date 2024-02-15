@@ -127,8 +127,8 @@ function generatePassword() {
   let pwdPreferenceBoolean = [uppercase, lowercase, numbers, punctuation];
   let pwdPreferenceArray = [];
   let numPreferences = 0;
-  let draftPassword = new Array(pwdLength);
-  let actualPassword = new Array(pwdLength);
+  let draftPassword = [];
+  let actualPassword = [];
 
   //calculate a balanced number of characters for each preference
   //check the number of preferences
@@ -137,8 +137,8 @@ function generatePassword() {
       numPreferences+= 1;
     }
   }
-  let baseNumber = Math.floor(pwdLength / numPreferences); //minimum number of characters for the selected preferences
-  let numExtra = pwdLength % numPreferences; //the remainder
+  let baseNumber = parseInt(pwdLength / numPreferences); //minimum number of characters for the selected preferences
+  let numExtra = pwdLength - (baseNumber * numPreferences); //the remainder
   //declare variables
   let numUppercase = 0;
   let numLowercase = 0;
@@ -146,7 +146,7 @@ function generatePassword() {
   let numPunctuation = 0;
   //iterate through "pwd preference array" to assign the base number of characters
   for (var i = 0; i < pwdPreferenceBoolean.length; i++) {
-    if (pwdPreferenceBoolean[i] = true) {
+    if (pwdPreferenceBoolean[i] == true) {
       switch (i) {
         case 0:
           numUppercase = baseNumber; //update number of characters
@@ -185,8 +185,6 @@ function generatePassword() {
           numPunctuation += 1;
           break;
       }
-      pwdPreferenceArray.splice(randomIndex, 1); //remove the chosen character type
-      numExtra -= 1; //decrease the number of remaining extra characters
     }
   }
 
@@ -218,7 +216,12 @@ function generatePassword() {
         arrayCopy.splice(randomIndex, 1);
     }
 
-    return actualPassword;
+  //create string to hold password
+  let password = "";
+  for (var i = 0; i < pwdLength; i++) {
+    password += draftPassword[i];
+  }
+  return password;
 }
 
 // Get references to the #generate element
