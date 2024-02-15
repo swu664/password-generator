@@ -137,10 +137,6 @@ function generatePassword() {
       numPreferences+= 1;
     }
   }
-  //if no preferences are selected, avoid infinity array length
-  if (numPreferences === 0) {
-    numPreferences += 1;
-  }
   let baseNumber = Math.floor(pwdLength / numPreferences); //minimum number of characters for the selected preferences
   let numExtra = pwdLength % numPreferences; //the remainder
   //declare variables
@@ -230,7 +226,6 @@ var generateBtn = document.querySelector('#generate');
 
 // Write password to the #password input
 function writePassword() {
-  var password = generatePassword();
   var passwordText = document.querySelector('#password');
   //if password is empty and no preference is selected
   if (pwdLength == 0) {
@@ -238,7 +233,7 @@ function writePassword() {
   } else if ((uppercase==false && lowercase==false && numbers == false && punctuation==false)) {
     passwordText.value = "Please makes sure that you have entered your desired password length and selected your password preferences."
   } else {
-    passwordText.value = password;
+    passwordText.value = generatePassword();
   }
 }
 
